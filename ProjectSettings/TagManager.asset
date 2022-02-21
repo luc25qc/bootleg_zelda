@@ -43,6 +43,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Map
+    uniqueID: 2571792191
+    locked: 0
   - name: Signs
     uniqueID: 2152818523
     locked: 0
