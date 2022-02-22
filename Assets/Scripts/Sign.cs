@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Sign : MonoBehaviour
 {
+    public SignalSender contextOn;
+    public SignalSender contextOff;
     public GameObject dialogBox;
     public Text dialogText;
     public string dialog;
@@ -19,7 +21,7 @@ public class Sign : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && playerInRange){
+        if (Input.GetButtonDown("Interact") && playerInRange){
             if (dialogBox.activeInHierarchy)
             {
                 dialogBox.SetActive(false);
@@ -36,6 +38,7 @@ public class Sign : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            contextOn.Raise();
             playerInRange = true;
         }
     }
@@ -44,6 +47,7 @@ public class Sign : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            contextOff.Raise();
             playerInRange=false;
             dialogBox.SetActive(false);
         }
