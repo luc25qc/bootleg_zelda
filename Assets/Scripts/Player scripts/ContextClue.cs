@@ -6,6 +6,7 @@ public class ContextClue : MonoBehaviour
 {
 
     public GameObject contextClue;
+    public bool contextActive = false;
     Animation clueAnim;
 
     public void Start()
@@ -14,14 +15,28 @@ public class ContextClue : MonoBehaviour
         clueAnim = contextClue.GetComponent<Animation>();
     }
 
-    public void Enable()
-    {
-        contextClue.SetActive(true);
-        clueAnim.Play();
-    }
+    //public void Enable()
+    //{
+    //    contextClue.SetActive(true);
+    //    clueAnim.Play();
+    //}
 
-    public void Disable()
+    //public void Disable()
+    //{
+    //    contextClue.SetActive(false);
+    //}
+
+    public void CheckContext()
     {
-        contextClue.SetActive(false);
+        contextActive = !contextActive;
+        if (contextActive)
+        {
+            contextClue.SetActive(true);
+            clueAnim.Play();
+        }
+        else
+        {
+            contextClue.SetActive(false);
+        }
     }
 }
